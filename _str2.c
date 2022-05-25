@@ -1,33 +1,33 @@
 #include "main.h"
 
 /**
- * _strdup - duplicates a str in the heap memory.
- * @s: Type char pointer str
+ * _strdup - duplicates a str in the heap 
+ * @str: Type char pointer st
  * Return: duplicated str
  */
-char *_strdup(const char *s)
+char *_strdup(const char *str)
 {
 	char *new;
 	size_t len;
 
-	len = _strlen(s);
-	new = malloc(sizeof(char) * (len + 1));
+	len = _len(str);
+	new = malloc(sizeof(char) * len + 1);
 	if (new == NULL)
 		return (NULL);
-	_memcpy(new, s, len + 1);
+	_memcpy(new, str, len + 1);
 	return (new);
 }
 
 /**
- * _strlen - Returns the lenght of a string.
- * @s: Type char pointer
+ * _len - Returns the lenght of a string.
+ * @str: Type char pointer
  * Return: Always 0.
  */
-int _strlen(const char *s)
+int _len(const char *str)
 {
 	int len;
 
-	for (len = 0; s[len] != 0; len++)
+	for (len = 0; str[len] != 0; len++)
 	{
 	}
 	return (len);
@@ -78,7 +78,7 @@ char *_strtok(char str[], const char *delim)
 		if (cmp_chars(str, delim))
 			return (NULL);
 		splitted = str; /*Store first address*/
-		i = _strlen(str);
+		i = _len(str);
 		str_end = &str[i]; /*Store last address*/
 	}
 	str_start = splitted;
@@ -113,16 +113,16 @@ char *_strtok(char str[], const char *delim)
 /**
  * _isdigit - defines if string passed is a number
  *
- * @s: input string
+ * @str: input string
  * Return: 1 if string is a number. 0 in other case.
  */
-int _isdigit(const char *s)
+int _isdigit(const char *str)
 {
 	unsigned int i;
 
-	for (i = 0; s[i]; i++)
+	for (i = 0; str[i]; i++)
 	{
-		if (s[i] < 48 || s[i] > 57)
+		if (str[i] < 48 || str[i] > 57)
 			return (0);
 	}
 	return (1);

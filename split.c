@@ -51,7 +51,7 @@ char *swap_char(char *input, int bool)
  * @input: input string
  * Return: no return
  */
-void add_nodes(sep_list **head_s, line_list **head_l, char *input)
+void add_nodes(link_sep **head_s, link_line **head_l, char *input)
 {
 	int i;
 	char *line;
@@ -84,14 +84,14 @@ void add_nodes(sep_list **head_s, line_list **head_l, char *input)
  *
  * @list_s: separator list
  * @list_l: command line list
- * @datash: data structure
+ * @d_sh: data structure
  * Return: no return
  */
-void go_next(sep_list **list_s, line_list **list_l, data_shell *datash)
+void go_next(link_sep **list_s, link_line **list_l, data_struct *d_sh)
 {
 	int loop_sep;
-	sep_list *ls_s;
-	line_list *ls_l;
+	link_sep *ls_s;
+	link_line *ls_l;
 
 	loop_sep = 1;
 	ls_s = *list_s;
@@ -99,7 +99,7 @@ void go_next(sep_list **list_s, line_list **list_l, data_shell *datash)
 
 	while (ls_s != NULL && loop_sep)
 	{
-		if (datash->status == 0)
+		if (d_sh->stat == 0)
 		{
 			if (ls_s->separator == '&' || ls_s->separator == ';')
 				loop_sep = 0;
@@ -125,15 +125,15 @@ void go_next(sep_list **list_s, line_list **list_l, data_shell *datash)
  * split_commands - splits command lines according to
  * the separators ;, | and &, and executes them
  *
- * @datash: data structure
+ * @d_sh: data structure
  * @input: input string
  * Return: 0 to exit, 1 to continue
  */
-int split_commands(data_shell *datash, char *input)
+int split_commands(data_struct *d_sh, char *input)
 {
 
-	sep_list *head_s, *list_s;
-	line_list *head_l, *list_l;
+	link_sep *head_s, *list_s;
+	link_line *head_l, *list_l;
 	int loop;
 
 	head_s = NULL;
@@ -146,22 +146,22 @@ int split_commands(data_shell *datash, char *input)
 
 	while (list_l != NULL)
 	{
-		datash->input = list_l->line;
-		datash->args = split_line(datash->input);
-		loop = exec_line(datash);
-		free(datash->args);
+		d_sh->input = list_l->line;
+		d_sh->args = split_line(d_sh->input);
+		loop = fnd_cmd(d_sh);
+		free(d_sh->args);
 
 		if (loop == 0)
 			break;
 
-		go_next(&list_s, &list_l, datash);
+		go_next(&list_s, &list_l, d_sh);
 
 		if (list_l != NULL)
 			list_l = list_l->next;
 	}
 
-	free_sep_list(&head_s);
-	free_line_list(&head_l);
+	free_link_sep(&head_s);
+	free_link_line(&head_l);
 
 	if (loop == 0)
 		return (0);
@@ -181,30 +181,30 @@ char **split_line(char *input)
 	char **tokens;
 	char *token;
 
-	bsize = TOK_BUFSIZE;
+	bsize = BUFSIZE_TOK;
 	tokens = malloc(sizeof(char *) * (bsize));
 	if (tokens == NULL)
 	{
-		write(STDERR_FILENO, ": allocation error\n", 18);
+		write(STDERR_FILENO, ": allocation err\n", 18);
 		exit(EXIT_FAILURE);
 	}
 
-	token = _strtok(input, TOK_DELIM);
+	token = _strtok(input, DELIM_TOK);
 	tokens[0] = token;
 
 	for (i = 1; token != NULL; i++)
 	{
 		if (i == bsize)
 		{
-			bsize += TOK_BUFSIZE;
-			tokens = _reallocdp(tokens, i, sizeof(char *) * bsize);
+			bsize += BUFSIZE_TOK;
+			tokens = _realloc_d(tokens, i, sizeof(char *) * bsize);
 			if (tokens == NULL)
 			{
-				write(STDERR_FILENO, ": allocation error\n", 18);
+				write(STDERR_FILENO, ": allocation err\n", 18);
 				exit(EXIT_FAILURE);
 			}
 		}
-		token = _strtok(NULL, TOK_DELIM);
+		token = _strtok(NULL, DELIM_TOK);
 		tokens[i] = token;
 	}
 

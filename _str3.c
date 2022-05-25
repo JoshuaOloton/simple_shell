@@ -3,23 +3,23 @@
 
 /**
  * rev_string - reverses a string.
- * @s: input string.
+ * @str: input string.
  * Return: no return.
  */
-void rev_string(char *s)
+void rev_string(char *str)
 {
-	int count = 0, i, j;
+	int ct = 0, i, j;
 	char *str, temp;
 
-	while (count >= 0)
+	while (ct >= 0)
 	{
-		if (s[count] == '\0')
+		if (str[ct] == '\0')
 			break;
-		count++;
+		ct++;
 	}
-	str = s;
+	str = str;
 
-	for (i = 0; i < (count - 1); i++)
+	for (i = 0; i < (ct - 1); i++)
 	{
 		for (j = i + 1; j > 0; j--)
 		{
