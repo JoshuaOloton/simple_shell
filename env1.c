@@ -68,12 +68,12 @@ int _env(data_struct *d_sh)
 	while (d_sh->_environ[i])
 	{
 		j = 0;
-		while (j = 0; d_sh->_environ[i][j])
+		while (d_sh->_environ[i][j])
 			j++;
 
 		write(STDOUT_FILENO, d_sh->_environ[i], j);
 		write(STDOUT_FILENO, "\n", 1);
-		i++:
+		i++;
 	}
 	d_sh->stat = 0;
 

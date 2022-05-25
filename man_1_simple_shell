@@ -20,7 +20,7 @@ If arguments remain after option processing, the first argument is assumed to be
 
 .SH INVOCATION
 Sodash is started with the standard input connected to the terminal (as determined by \fIisatty(3)\fR), the interactive mode is executed. Also non-interactively option can be executed.
-When Sodash is executed interactively, the prompt is displayed  \fI^-^ \fR to read any command, the command line argument is invoked and is treated as the first argument.
+When Sodash is executed interactively, the prompt is displayed  \fI$ \fR to read any command, the command line argument is invoked and is treated as the first argument.
 
 .SH DEFINITIONS
 The following definitions are used throughout the rest of this document.

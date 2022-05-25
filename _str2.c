@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strdup - duplicates a str in the heap 
+ * _strdup - duplicates a str in the heap
  * @str: Type char pointer st
  * Return: duplicated str
  */

@@ -51,7 +51,7 @@ void shell_loop(data_struct *d_sh)
 	loop = 1;
 	while (loop == 1)
 	{
-		write(STDIN_FILENO, "^-^ ", 4);
+		write(STDIN_FILENO, "$ ", 2);
 		input = readline(&i_eof);
 		if (i_eof != -1)
 		{

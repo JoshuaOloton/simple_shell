@@ -1,4 +1,3 @@
-
 #include "main.h"
 
 /**
@@ -8,7 +7,7 @@
  * @message: print message
  * @err: err output
  * @ct: line count
- * 
+ *
  * Return: err
  */
 char *cat_cd(data_struct *d_sh, char *message, char *err, char *ct)

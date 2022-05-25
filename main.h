@@ -17,6 +17,8 @@
 #define DELIM_TOK " \t\r\n\a"
 
 
+extern char **environ;
+
 /**
  * struct data - holds all relevant runtime data
  * @argv: argument vector

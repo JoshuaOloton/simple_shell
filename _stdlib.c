@@ -30,7 +30,7 @@ int get_len(int n)
 /**
  * _atos - converts int to string.
  * @n: int number
- * 
+ *
  * Return: String.
  */
 char *_atos(int n)
@@ -76,8 +76,8 @@ int _atoi(char *str)
 	unsigned int count = 0;
 	unsigned int size = 0;
 	unsigned int x = 0;
-	unsigned y = 1;
-	unsigned z = 1;
+	unsigned int y = 1;
+	unsigned int z = 1;
 	unsigned int i;
 
 	while (*(str + count) != '\0')

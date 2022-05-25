@@ -115,7 +115,7 @@ int _spn(char *str, char *accept)
 		}
 		if (bool == 1)
 			break;
-		i++
+		i++;
 	}
 	return (i);
 }
