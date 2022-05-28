@@ -174,8 +174,8 @@ int _env(data_struct *d_sh);
 /* env2.c */
 char *copy_info(char *name, char *value);
 void set_env(char *name, char *value, data_struct *d_sh);
-int _cmpenv(data_struct *d_sh);
-int _delenv(data_struct *d_sh);
+int _setenv(data_struct *d_sh);
+int _unsetenv(data_struct *d_sh);
 
 /* cd.c */
 void cd_dot(data_struct *d_sh);
@@ -219,8 +219,8 @@ void sig_handl(int sig);
 
 /* _help.c */
 void _help_env(void);
-void _help_cmpenv(void);
-void _help_delenv(void);
+void _help_setenv(void);
+void _help_unsetenv(void);
 void _help_general(void);
 void _help_exit(void);
 
