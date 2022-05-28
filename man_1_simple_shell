@@ -70,11 +70,11 @@ The following builtin commands are supported:
 
 - Print the current enviroment
 
-.B cmpenv [Variable] [Value]
+.B setenv [Variable] [Value]
 
 - Creates a new environment variab;e or modifies an existing one.
 
-.B delenv [Variable]
+.B unsetenv [Variable]
 
 - Removes an environmental variable.
 
