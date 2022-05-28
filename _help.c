@@ -14,13 +14,13 @@ void _help_env(void)
 
 }
 /**
- * _help_cmpenv - Help information for the builtin cmpenv
+ * _help_setenv - Help information for the builtin setenv
  * Return: no return
  */
-void _help_cmpenv(void)
+void _help_setenv(void)
 {
 
-	char *help = "cmpenv: cmpenv (const char *name, const char *value,";
+	char *help = "setenv: setenv (const char *name, const char *value,";
 
 	write(STDOUT_FILENO, help, _len(help));
 	help = "int replace)\n\t";
