@@ -29,12 +29,12 @@ void _help_cmpenv(void)
 	write(STDOUT_FILENO, help, _len(help));
 }
 /**
- * _help_delenv - Help information for the builtin delenv
+ * _help_unsetenv - Help information for the builtin unsetenv
  * Return: no return
  */
-void _help_delenv(void)
+void _help_unsetenv(void)
 {
-	char *help = "delenv: delenv (const char *name)\n\t";
+	char *help = "unsetenv: unsetenv (const char *name)\n\t";
 
 	write(STDOUT_FILENO, help, _len(help));
 	help = "Remove an entry completely from the environment\n";
@@ -59,9 +59,9 @@ void _help_general(void)
 	write(STDOUT_FILENO, help, _len(help));
 	help = "[dir]\nexit: exit [n]\n  env: env [option] [name=value] [command ";
 	write(STDOUT_FILENO, help, _len(help));
-	help = "[args]]\n  cmpenv: cmpenv [variable] [value]\n  delenv: ";
+	help = "[args]]\n  setenv: setenv [variable] [value]\n  unsetenv: ";
 	write(STDOUT_FILENO, help, _len(help));
-	help = "delenv [variable]\n";
+	help = "unsetenv [variable]\n";
 	write(STDOUT_FILENO, help, _len(help));
 }
 /**

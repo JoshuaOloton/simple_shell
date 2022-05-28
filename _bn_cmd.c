@@ -10,8 +10,8 @@ int (*_bn_cmd(char *cmd))(data_struct *)
 	bn_t bn[] = {
 		{ "env", _env },
 		{ "exit", sh_exit },
-		{ "cmpenv", _cmpenv },
-		{ "delenv", _delenv },
+		{ "setenv", _setenv },
+		{ "unsetenv", _unsetenv },
 		{ "cd", change_cd },
 		{ "help", get_help },
 		{ NULL, NULL }
