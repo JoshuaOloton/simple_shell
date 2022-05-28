@@ -58,13 +58,13 @@ void set_env(char *name, char *value, data_struct *d_sh)
 }
 
 /**
- * _cmpenv - compares env variables names
+ * _setenv - compares env variables names
  * with the name passed.
  * @d_sh: data relevant (env name and env value)
  *
  * Return: 1 on success.
  */
-int _cmpenv(data_struct *d_sh)
+int _setenv(data_struct *d_sh)
 {
 
 	if (d_sh->args[1] == NULL || d_sh->args[2] == NULL)
@@ -79,13 +79,13 @@ int _cmpenv(data_struct *d_sh)
 }
 
 /**
- * _delenv - deletes a environment variable
+ * _unsetenv - deletes a environment variable
  *
  * @d_sh: data relevant (env name)
  *
  * Return: 1 on success.
  */
-int _delenv(data_struct *d_sh)
+int _unsetenv(data_struct *d_sh)
 {
 	char **realloc_environ;
 	char *var_env, *name_env;
